@@ -2,14 +2,15 @@ package com.producer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
+import tk.mybatis.spring.annotation.MapperScan;
+
+@SpringBootApplication
 @EnableDiscoveryClient
 @EnableEurekaClient
+@MapperScan("com.producer.mapper")
 public class ProducerDemoApplication {
 	public static void main(String[] args) {
         SpringApplication.run(ProducerDemoApplication.class, args);
