@@ -19,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableFeignClients
 public class ConsumerDemoApplication {
 	@Bean
-    @LoadBalanced
+    @LoadBalanced //负载均衡注解:默认是轮询
     public RestTemplate restTemplate() {
         // 这次我们使用了OkHttp客户端,只需要注入工厂即可
         return new RestTemplate(new OkHttp3ClientHttpRequestFactory());
